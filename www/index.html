@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css" type="text/css">
+    <script type="text/javascript" src="./js/peoples.js"></script>
+    <script src="./js/angular.min.js"></script>
+	  <script src="./js/release/angular-ui-router.min.js"></script>
+    <script src="./js/app/app.module.js"></script>
+    <script src="./js/app/login/login.module.js"></script>
+    <script src="./js/app/login/login.component.js"></script>
+    <script src="./js/app/dashboard/dashboard.module.js"></script>
+    <script src="./js/app/dashboard/dashboard.component.js"></script>
+    <script src="./js/app/news/news.module.js"></script>
+    <script src="./js/app/news/news.component.js"></script>
+    <script src="./js/app/tools/tools.module.js"></script>
+    <script src="./js/app/tools/tools.component.js"></script>
+    <script src="./js/app/peoples/peoples.module.js"></script>
+    <script src="./js/app/peoples/peoples.component.js"></script>
+    <script src="./js/app/modal/modal.module.js"></script>
+    <script src="./js/app/modal/modal.component.js"></script>
+  </head>
+
+  <body>
+    <div class="container" ng-app="routerApp">
+  		<ui-view>
+  			<i>Loading ....</i>
+  		</ui-view>
+
+    </div>
+    <script src="cordova.js"></script>
+  </body>
+
+</html>

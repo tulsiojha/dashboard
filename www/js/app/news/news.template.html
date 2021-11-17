@@ -1,0 +1,8 @@
+<div class="news" directive-when-scrolled="loadMore()">
+    
+    <div class="image-container" ng-repeat="image in images | limitTo: limit">
+        <img ng-src="{{image.src.tiny}}"/>
+    </div>
+    <div ng-if="loading" class="loading">
+    </div>
+</div>

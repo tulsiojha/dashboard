@@ -1,0 +1,17 @@
+<div class="dashboard-main">
+    <div class="item" id="peoples-card" ng-click="loadPeoples()">
+        <div class="icon"><img ng-src="./img/profile.png"></div><div class="name">Peoples</div>
+    </div>
+    <div class="item" id="time">
+        <div id="hrs">{{time.hrs}}</div>
+        <div id="mins">{{time.mins}}</div>
+        <div id="secs">{{time.secs}}</div>
+    </div>
+    <div class="item" id="weather">
+        <img ng-src="./img/weather.png">
+        <div class="weather-data">
+            <div class="temperature">{{weatherData.main.temp}} <sup>o</sup>F</div>
+            <div class="city">{{weatherData.name}}</div>
+        </div>
+    </div>
+</div>
