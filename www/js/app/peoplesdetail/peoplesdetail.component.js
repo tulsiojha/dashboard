@@ -5,7 +5,7 @@ angular.
       data:'<'
     },
     templateUrl:'./js/app/peoplesdetail/peoplesdetail.template.html',
-    controller: function($scope, $stateParams, $state) {
+    controller: function($scope, $stateParams, $state, $location,$urlMatcherFactory) {
 
       $scope.showEditModal = false;
       $scope.showErrorModal = false;
@@ -66,6 +66,30 @@ angular.
         navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
           destinationType: Camera.DestinationType.FILE_URI,
           sourceType: source==="choose"?Camera.PictureSourceType.PHOTOLIBRARY:Camera.PictureSourceType.CAMERA });
+      }
+
+      document.addEventListener("backbutton", onBackKeyDown, false);
+
+      function onBackKeyDown() {
+        const url = $location.path();
+        var urlMatcher = $urlMatcherFactory.compile("/dashboard/peoplesdetail/:id");
+        var matched = urlMatcher.exec($location.path());
+       console.log(url)
+       if (matched != null) {
+        console.log($scope.showErrorModal, $scope.showEditModal);
+        if ($scope.showErrorModal || $scope.showEditModal) {
+          if ($scope.showErrorModal) {
+            $scope.showErrorModal = false;
+            $scope.$apply()
+          }else{
+            $scope.showEditModal = false;
+            $scope.$apply()
+          }
+        }else{
+          $state.go("peoples")
+        }
+        
+      }
       }
     }
   });

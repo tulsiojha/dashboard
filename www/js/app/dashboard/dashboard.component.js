@@ -12,17 +12,13 @@ angular.
 
      function onBackKeyDown() {
        const url = $location.path();
-       console.log(url);
-       var urlMatcher = $urlMatcherFactory.compile("/dashboard/peoplesdetail/:id");
-       var matched = urlMatcher.exec($location.path());
-       console.log("matched", matched);
+      //  console.log(url);
+      
+      //  console.log("matched", matched);
        if (url === "/dashboard/main") {
          navigator.app.exitApp();
        }else if (url === "/dashboard/peoples") {
          $state.go("dashboard")
-       }else if (matched != null) {
-         console.log("peoples");
-         $state.go("peoples")
        }
      }
     }

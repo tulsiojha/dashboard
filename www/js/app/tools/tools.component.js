@@ -3,10 +3,8 @@ angular.
     component("tools",{
         templateUrl:"./js/app/tools/tools.template.html",
         controller:function ($scope, $state, $http,$location) {
-            $scope.weatherData = {}
-            
-
-          
+            $scope.temp=0;
+            $scope.cityName="";          
 
             $scope.time = {hrs:new Date().getHours(), mins:new Date().getMinutes(), secs:new Date().getSeconds()}
             // console.log();
@@ -51,7 +49,9 @@ angular.
           $http.get("https://api.openweathermap.org/data/2.5/weather?lat="+position.coords.latitude+"&lon="+position.coords.longitude+"&APPID=3be1ef657db450342995fb0c65e58a33").
           then(function mSuccess(response) {
             console.log(response.data);
-            $scope.weatherData = response.data;
+            // $scope.weatherData = response.data;
+            $scope.temp = Math.round((response.data.main.temp-273.15) * 100) / 100;
+            $scope.cityName = response.data.name;
           },function mError(response) {
             console.log("error:",response);
           })
