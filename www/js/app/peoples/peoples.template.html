@@ -1,5 +1,5 @@
 <div class="peoplesHolder">
-    <div class="peoples" ng-repeat="people in persons;">
+    <div class="peoples" ng-repeat="people in persons;" ng-click="showDetail($index)">
         <div class="avatar"><img ng-src="{{people.avatar}}"></div><div class="info"><div>{{people.name}}</div><div>{{people.email}}</div></div>
     </div>
 </div>

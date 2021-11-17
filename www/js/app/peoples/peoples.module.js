@@ -1,1 +1,1 @@
-angular.module("peoples",[]);
+var peoples = angular.module("peoples",[]);

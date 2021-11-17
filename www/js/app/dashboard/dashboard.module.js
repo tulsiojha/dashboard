@@ -1,6 +1,6 @@
 // Code goes here
 
-var routerApp = angular.module("dashboard", ["ui.router",'news', 'tools', 'peoples']);
+var routerApp = angular.module("dashboard", ["ui.router",'news', 'tools', 'peoples', 'peoplesdetail']);
 
 
 
@@ -29,10 +29,23 @@ routerApp.config(
           url:"/peoples",
           template:"<peoples></peoples>",
           controller:"peopleController"
-      });
+      })
+      .state("peoplesdetail",{
+        parent:"dashboard",
+        url:"/peoplesdetail/:user_id",
+        template:"<peoplesdetail></peoplesdetail>",
+        controller:"peoplesDetailController"
+    });
 
     }
   ]);
+
+
+  routerApp.controller("peoplesDetailController", ["$scope",
+  function($scope) {
+  
+  }
+]);
 
   routerApp.controller("peopleController", ["$scope",
   function($scope) {
