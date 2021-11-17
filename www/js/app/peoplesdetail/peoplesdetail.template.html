@@ -1,3 +1,9 @@
+<div class="pageTopBar">
+    <span class="pageBackButton" ng-click="onBackClicked()"><img ng-src="./img/back.svg"></span>
+    <span class="pageTitle">{{data.name}}</span>
+    <span class="editButton" ng-click="onEditClicked()">edit</span>
+    
+</div>
 <div class="peoplesdetail-container">
     <div class="avatar-holder"><img ng-src='{{data.avatar}}'></div>
     <div class="people-desc">
@@ -7,3 +13,34 @@
         <div class="phone">{{data.address}}</div>
     </div>
 </div>
+
+<modal ng-if="showEditModal">
+    <div class="modal-title">Edit details</div>
+    <div class="modal-body">
+        <div class="detail-avatar-holder"><img ng-src={{avatar}} ng-model="avatar">
+            <div>
+                <button ng-click="getPhoto('choose')">choose</button>
+                <button ng-click="getPhoto('capture')">capture</button>
+            </div>
+        </div>
+        <span class="detl">Name</span>
+        <input  class="peoples-data" ng-model="name">
+        <span class="detl">Email</span>
+        <input  class="peoples-data" ng-model="email">
+        <span class="detl">Phone</span>
+        <input  class="peoples-data" ng-model="phone">
+        <span class="detl">Address</span>
+        <input  class="peoples-data" ng-model="address">
+    </div>
+    <div class="modal-action">
+        <button class="save-button" ng-click="onSaveClicked(name, email, phone, address, avatar)">save</button>
+        <button class="close-button" ng-click="closeErrorModal()">cancel</button>
+    </div>
+</modal>
+
+<modal ng-if="showErrorModal">
+    <div class="error-message">Error some fields are empty !!!</div>
+    <div class="modal-action">
+        <button class="close-button" ng-click="closeErrorModal()">close</button>
+    </div>
+</modal>
