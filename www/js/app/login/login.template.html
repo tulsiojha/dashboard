@@ -6,13 +6,16 @@
         <input placeholder="username" type="text" ng-model="username">
         <div>Password:</div>
         <input placeholder="password" type="password" ng-model="password">
-        <div class="login-actions"><button class="login-button" ng-click="onLoginClicked()">Login</button></div>
+        <div class="login-actions"><button class="login-button" ng-click="onLoginClicked()" ng-model=$ctrl.showErrorModal>Login</button></div>
     </div>
 </div>
 
-<modal ng-if="showErrorModal">
-    <div class="error-message">Invalid username or password !</div>
-    <div class="modal-action">
-        <button class="close-button" ng-click="closeErrorModal()">close</button>
-    </div>
-</modal>
+<div bn-modal id="1" ng-hide="!(shouldShow && (id === '1'))"  class="modal showErrorModal">
+    <modal>
+        <div class="modal-title">Authentication Error</div>
+        <div class="error-message">Invalid Username or Password !</div>
+        <div class="modal-action">
+            <button class="close-button" ng-click="closeErrorModal()">close</button>
+        </div>
+    </modal>
+</div>

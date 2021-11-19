@@ -60,7 +60,7 @@ angular.
         }).then(function successCallback(response) {
             console.log(response);
             $scope.images.push.apply($scope.images, response.data.photos);
-            // $scope.loading = false;
+            $scope.loading = false;
         },function errorCallback(response) {
             
         })
@@ -97,13 +97,15 @@ angular.
 
     
   }).directive("directiveWhenScrolled", function() {
+    
     return function(scope, elm, attr) {
       var raw = elm[0];
   
       elm.bind('scroll', function() {
-          console.log("scroll");
+          console.log(raw.scrollTop + raw.offsetHeight, raw.scrollHeight);
         if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight) {
           scope.$apply(attr.directiveWhenScrolled);
+          console.log("scroll");
         }
       });
     };

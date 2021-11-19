@@ -11,17 +11,16 @@
     </div>
     <div ng-if="loading" class="loading">
     </div>
-</div>
-
-<div class="imageView" id="imageView">
-    <button class="image-button-close" ng-click="hideImageViewer()">x</button>
-    <div class="swiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" ng-repeat="image in images | limitTo: limit">
-                <div class="slide-image-holder">
-                    <img ng-src="{{image.src.portrait}}"/>
+    <div class="imageView" id="imageView">
+        <button class="image-button-close" ng-click="hideImageViewer()">x</button>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" ng-repeat="image in images | limitTo: limit">
+                    <div class="slide-image-holder">
+                        <img ng-src="{{image.src.portrait}}"/>
+                    </div>
                 </div>
-            </div>
-          </div>
+              </div>
+        </div>
     </div>
 </div>

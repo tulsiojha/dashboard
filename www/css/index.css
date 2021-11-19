@@ -129,7 +129,7 @@ border: 1px solid black;
 
 
 .modal{
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.1);
   position: fixed;
   top: 0;
   left: 0;
@@ -491,3 +491,46 @@ border: 1px solid black;
   .offset{
     width: 40px;
   }
+
+  .showErrorModal{
+    transform: translateY(0);
+    animation:pop-in 0.1s;
+  }
+ 
+  .showErrorModal.ng-hide{
+    /* transition:all ease-in 0s; */
+    transform: translateY(100vh);
+  }
+
+  @keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+
+
+  .slide {
+    -webkit-transition: -webkit-transform .7s ease-in-out;
+    -moz-transition: -moz-transform .7s ease-in-out;
+    -o-transition: -o-transform .7s ease-in-out;
+    transition: transform .7s ease-in-out;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.slide.ng-enter {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.slide.ng-enter.ng-enter-active, .slide.ng-leave {
+    position: absolute;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.slide.ng-leave.ng-leave-active {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+

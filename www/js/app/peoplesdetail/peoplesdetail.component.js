@@ -10,13 +10,18 @@ angular.
       $scope.showEditModal = false;
       $scope.showErrorModal = false;
 
-      $scope.data = peoplesData[$stateParams.user_id];
-      $scope.name = peoplesData[$stateParams.user_id].name;
-      $scope.email = peoplesData[$stateParams.user_id].email;
-      $scope.phone = peoplesData[$stateParams.user_id].phone;
-      $scope.address = peoplesData[$stateParams.user_id].address;   
-      $scope.avatar =  peoplesData[$stateParams.user_id].avatar;   
-     
+      
+     setScope()
+    
+       function setScope(params) {
+        $scope.data = peoplesData[$stateParams.user_id];
+        $scope.name = peoplesData[$stateParams.user_id].name;
+        $scope.email = peoplesData[$stateParams.user_id].email;
+        $scope.phone = peoplesData[$stateParams.user_id].phone;
+        $scope.address = peoplesData[$stateParams.user_id].address;   
+        $scope.avatar =  peoplesData[$stateParams.user_id].avatar;   
+      }
+
       $scope.onSaveClicked =function(name, email, phone, address, avatar){
        if (name !="" && email != "" && phone != "" && address != "" && avatar != "") {
           peoplesData[$stateParams.user_id].name = name;
@@ -24,18 +29,19 @@ angular.
           peoplesData[$stateParams.user_id].phone = phone;
           peoplesData[$stateParams.user_id].address = address;
           peoplesData[$stateParams.user_id].avatar = avatar;
+          setScope();
           $scope.showEditModal= false;
-          $scope.$apply();
+          // $scope.$apply();
        }else{
          $scope.showErrorModal= true;
-         $scope.$apply();
+        //  $scope.$apply();
        }
         console.log(name);
       }
 
       $scope.onEditClicked=function() {
         $scope.showEditModal = true;
-        $scope.$apply();
+        // $scope.$apply();
       }
 
       $scope.onBackClicked= function() {
@@ -43,18 +49,18 @@ angular.
       }
       $scope.onCancelClicked=function() {
         $scope.showEditModal = false;
-        $scope.$apply();
+        // $scope.$apply();
       }
 
       $scope.closeErrorModal = function() {
         $scope.showErrorModal = false;
-        $scope.$apply();
+        // $scope.$apply();
       }
 
       function onPhotoURISuccess(response) {
         console.log(response);
         $scope.avatar = response;
-        $scope.$apply();
+        // $scope.$apply();
       }
 
       function onFail(response) {
@@ -80,10 +86,10 @@ angular.
         if ($scope.showErrorModal || $scope.showEditModal) {
           if ($scope.showErrorModal) {
             $scope.showErrorModal = false;
-            $scope.$apply()
+            // $scope.$apply()
           }else{
             $scope.showEditModal = false;
-            $scope.$apply()
+            // $scope.$apply()
           }
         }else{
           $state.go("peoples")

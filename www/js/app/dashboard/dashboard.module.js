@@ -1,6 +1,6 @@
 // Code goes here
 
-var routerApp = angular.module("dashboard", ["ui.router",'news', 'tools', 'peoples', 'peoplesdetail']);
+var routerApp = angular.module("dashboard", ['ngAnimate',"ui.router",'news', 'tools', 'peoples', 'peoplesdetail']);
 
 
 
